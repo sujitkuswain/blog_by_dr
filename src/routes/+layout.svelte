@@ -2,16 +2,21 @@
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import Navbar from '$lib/Navbar.svelte';
+	import Footer from '$lib/Footer.svelte';
 
 	let { children } = $props();
 </script>
-
-<Navbar />
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<main class="mx-auto max-w-7xl px-4 py-8">
-	{@render children?.()}
-</main>
+<div class="flex min-h-screen flex-col">
+	<Navbar />
+
+	<main class="max-w-7xl flex-1 justify-start px-16 py-8">
+		{@render children?.()}
+	</main>
+
+	<Footer />
+</div>
